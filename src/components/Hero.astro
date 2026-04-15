@@ -1,0 +1,181 @@
+---
+// Hero Component
+---
+<section class="hero">
+  <div class="container hero-container">
+    <div class="hero-content">
+      <span class="badge-text">🐾 Tu mascota lo merece</span>
+      <h1>Todo lo que tu <span>mejor amigo</span> necesita</h1>
+      <p>Descubre una selección premium de alimentos, juguetes y accesorios diseñados para hacer más feliz la vida de tu mascota.</p>
+      <div class="hero-buttons">
+        <a href="#" class="btn btn-primary">Comprar Ahora</a>
+        <a href="#" class="btn btn-outline">Ver Ofertas</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <strong>+5k</strong>
+          <span>Clientes Felices</span>
+        </div>
+        <div class="stat">
+          <strong>24/7</strong>
+          <span>Soporte</span>
+        </div>
+        <div class="stat">
+          <strong>Alta</strong>
+          <span>Calidad</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="hero-image">
+      <div class="image-wrapper">
+        <img src="/images/hero_dog_1775571203741.png" alt="Happy Golden Retriever">
+        <div class="floating-badge badge-1">
+          <span>🦴 100% Saludable</span>
+        </div>
+        <div class="floating-badge badge-2">
+          <span>⭐ Top Ventas</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding: 4rem 0 6rem 0;
+    background: linear-gradient(135deg, var(--color-secondary) 0%, rgba(255,255,255,1) 100%);
+    overflow: hidden;
+  }
+  
+  .hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+  }
+  
+  .hero-content {
+    flex: 1;
+    max-width: 600px;
+  }
+  
+  .badge-text {
+    display: inline-block;
+    background-color: rgba(255, 122, 0, 0.1);
+    color: var(--color-primary);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+  }
+  
+  .hero-content h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: var(--color-dark);
+  }
+  
+  .hero-content h1 span {
+    color: var(--color-primary);
+  }
+  
+  .hero-content p {
+    font-size: 1.1rem;
+    color: var(--color-gray);
+    margin-bottom: 30px;
+  }
+  
+  .hero-buttons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 40px;
+  }
+  
+  .hero-stats {
+    display: flex;
+    gap: 30px;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    padding-top: 20px;
+  }
+  
+  .stat strong {
+    display: block;
+    font-size: 1.5rem;
+    color: var(--color-dark);
+  }
+  
+  .stat span {
+    font-size: 0.9rem;
+    color: var(--color-gray);
+  }
+  
+  .hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .image-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  .image-wrapper img {
+    border-radius: 30%;
+    /* Subtle animation on hover or entry later */
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .floating-badge {
+    position: absolute;
+    background: white;
+    padding: 10px 20px;
+    border-radius: var(--border-radius-sm);
+    box-shadow: var(--shadow-lg);
+    font-weight: 600;
+  }
+  
+  .badge-1 {
+    top: 10%;
+    left: -10%;
+    animation: float 5s ease-in-out infinite reverse;
+  }
+  
+  .badge-2 {
+    bottom: 15%;
+    right: -5%;
+    animation: float 7s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+  }
+  
+  @media (max-width: 900px) {
+    .hero-container {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .hero-content {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .hero-buttons, .hero-stats {
+      justify-content: center;
+    }
+    
+    .floating-badge {
+      display: none;
+    }
+  }
+</style>

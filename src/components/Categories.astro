@@ -1,0 +1,79 @@
+---
+// Categories Component
+const categories = [
+  { name: 'Perros', icon: '🐕', color: '#FFF3E0' },
+  { name: 'Gatos', icon: '🐈', color: '#E3F2FD' },
+  { name: 'Aves', icon: '🦜', color: '#E8F5E9' },
+  { name: 'Peces', icon: '🐠', color: '#E1F5FE' },
+  { name: 'Pequeños', icon: '🐹', color: '#F3E5F5' },
+  { name: 'Reptiles', icon: '🦎', color: '#FBE9E7' }
+];
+---
+<section class="categories">
+  <div class="container text-center">
+    <h2 class="section-title">Comprar por Mascota</h2>
+    <p class="section-subtitle">Encuentra exactamente lo que necesitas para tu tipo de mascota</p>
+    
+    <div class="categories-grid">
+      {categories.map((cat) => (
+        <a href="#" class="category-item">
+          <div class="category-icon" style={`background-color: ${cat.color};`}>
+            <span>{cat.icon}</span>
+          </div>
+          <h3>{cat.name}</h3>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .categories {
+    background-color: var(--color-white);
+  }
+  
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+  }
+  
+  .category-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    transition: var(--transition);
+  }
+  
+  .category-item:hover {
+    transform: translateY(-5px);
+  }
+  
+  .category-item:hover .category-icon {
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .category-icon {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    transition: var(--transition);
+    border: 3px solid transparent;
+  }
+  
+  .category-item:hover .category-icon {
+    border-color: var(--color-primary);
+  }
+  
+  .category-item h3 {
+    font-size: 1.2rem;
+    color: var(--color-dark);
+    font-weight: 600;
+  }
+</style>

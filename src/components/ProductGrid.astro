@@ -1,0 +1,79 @@
+---
+import ProductCard from './ProductCard.astro';
+
+// Sample products data
+const products = [
+  {
+    id: 1,
+    title: 'Alimento Premium para Perros 15kg',
+    price: '45.99',
+    oldPrice: '55.00',
+    image: '/images/premium_kibble_1775571220568.png',
+    badge: 'Oferta'
+  },
+  {
+    id: 2,
+    title: 'Juguete Interactivo Gatos',
+    price: '12.50',
+    image: '/images/cat_toy_1775571248814.png',
+    badge: 'Nuevo'
+  },
+  {
+    id: 3,
+    title: 'Cama Ortopédica Mascotas',
+    price: '65.00',
+    image: '/images/dog_bed_1775571265517.png'
+  },
+  {
+    id: 4,
+    title: 'Snacks Saludables de Pollo',
+    price: '8.99',
+    image: '/images/premium_kibble_1775571220568.png',
+    badge: 'Popular'
+  }
+];
+---
+<section class="products-section">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <h2 class="section-title">Productos Destacados</h2>
+        <p class="section-subtitle">Lo más vendido y recomendado para tu mascota</p>
+      </div>
+      <a href="#" class="btn btn-outline">Ver Todo</a>
+    </div>
+    
+    <div class="product-grid">
+      {products.map((product) => (
+        <ProductCard {...product} />
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .products-section {
+    background-color: var(--color-light);
+  }
+  
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 2rem;
+  }
+  
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+  }
+  
+  @media (max-width: 600px) {
+    .section-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 15px;
+    }
+  }
+</style>

@@ -1,0 +1,160 @@
+---
+// ProductCard Component
+const { title, price, oldPrice, image, badge } = Astro.props;
+---
+<div class="product-card">
+  {badge && <div class="badge-tag">{badge}</div>}
+  <div class="product-img">
+    <img src={image} alt={title} />
+    <div class="product-actions">
+      <button class="action-btn" aria-label="Favorito">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+      </button>
+    </div>
+  </div>
+  <div class="product-info">
+    <div class="stars">★★★★★ <span>(24)</span></div>
+    <h3>{title}</h3>
+    <div class="price-container">
+      <span class="price">${price}</span>
+      {oldPrice && <span class="old-price">${oldPrice}</span>}
+    </div>
+    <button class="btn btn-primary add-to-cart">Añadir al carrito</button>
+  </div>
+</div>
+
+<style>
+  .product-card {
+    background-color: var(--color-white);
+    border-radius: var(--border-radius);
+    padding: 15px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    position: relative;
+    border: 1px solid rgba(0,0,0,0.05);
+  }
+  
+  .product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .badge-tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: var(--color-primary);
+    color: white;
+    padding: 5px 10px;
+    border-radius: var(--border-radius-sm);
+    font-size: 0.8rem;
+    font-weight: 700;
+    z-index: 2;
+  }
+  
+  .product-img {
+    height: 250px;
+    background-color: var(--color-light);
+    border-radius: var(--border-radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .product-img img {
+    max-height: 200px;
+    transition: transform 0.5s;
+  }
+  
+  .product-card:hover .product-img img {
+    transform: scale(1.1);
+  }
+  
+  .product-actions {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    opacity: 0;
+    transform: translateX(20px);
+    transition: all 0.3s ease;
+  }
+  
+  .product-card:hover .product-actions {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .action-btn {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: white;
+    border: none;
+    box-shadow: var(--shadow);
+    color: var(--color-gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  
+  .action-btn:hover {
+    background-color: var(--color-primary);
+    color: white;
+  }
+  
+  .product-info {
+    padding-top: 15px;
+  }
+  
+  .stars {
+    color: #FFB800;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+  }
+  
+  .stars span {
+    color: var(--color-gray);
+    font-size: 0.8rem;
+  }
+  
+  .product-info h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-dark);
+    margin-bottom: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .price-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .price {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+  
+  .old-price {
+    font-size: 0.9rem;
+    color: var(--color-gray);
+    text-decoration: line-through;
+  }
+  
+  .add-to-cart {
+    width: 100%;
+    padding: 10px;
+  }
+</style>

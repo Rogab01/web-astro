@@ -1,11 +1,60 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Benefits from '../components/Benefits.astro';
+import Categories from '../components/Categories.astro';
+import ProductGrid from '../components/ProductGrid.astro';
+import OfferCountdown from '../components/OfferCountdown.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Footer from '../components/Footer.astro';
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Inicio">
+  <Header />
+
+  <main>
+    <Hero />
+    <Benefits />
+    <Categories />
+    <ProductGrid />
+    <OfferCountdown />
+    <Testimonials />
+
+    <!-- Services Banner Section -->
+    <section class="banner-services">
+      <div class="container text-center text-white banner-content">
+        <h2>Servicios Veterinarios y de Peluquería</h2>
+        <p>No solo vendemos productos, cuidamos de su salud y belleza.</p>
+        <a href="#" class="btn btn-outline" style="border-color: white; color: white;">Agendar Cita</a>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
 </Layout>
+
+<style>
+  .banner-services {
+    background-color: var(--color-primary);
+    background-image: radial-gradient(circle at top right, var(--color-primary-light), var(--color-primary));
+    padding: 4rem 0;
+    margin: 2rem 0;
+  }
+  
+  .banner-content h2 {
+    font-size: 2.2rem;
+    color: white;
+    margin-bottom: 1rem;
+  }
+  
+  .banner-content p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+  }
+  
+  .text-white {
+    color: white;
+  }
+</style>

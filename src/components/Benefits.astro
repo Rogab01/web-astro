@@ -1,0 +1,93 @@
+---
+const benefits = [
+  {
+    icon: '🚚',
+    title: 'Envío Gratis',
+    description: 'En compras mayores a $50 a todo el país'
+  },
+  {
+    icon: '↩️',
+    title: 'Devoluciones Fáciles',
+    description: '30 días para cambios sin preguntas'
+  },
+  {
+    icon: '🔒',
+    title: 'Pago Seguro',
+    description: 'Transacciones 100% protegidas'
+  },
+  {
+    icon: '✅',
+    title: 'Productos Certificados',
+    description: 'Calidad garantizada por veterinarios'
+  }
+];
+---
+<section class="benefits">
+  <div class="container">
+    <div class="benefits-grid">
+      {benefits.map((item) => (
+        <div class="benefit-card">
+          <div class="benefit-icon">{item.icon}</div>
+          <div class="benefit-text">
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .benefits {
+    background-color: var(--color-white);
+    padding: 3rem 0;
+  }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+  }
+
+  .benefit-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    background-color: var(--color-light);
+    transition: var(--transition);
+  }
+
+  .benefit-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    background-color: var(--color-secondary);
+  }
+
+  .benefit-icon {
+    font-size: 2.5rem;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 50%;
+    flex-shrink: 0;
+    box-shadow: var(--shadow);
+  }
+
+  .benefit-text h3 {
+    font-size: 1.05rem;
+    color: var(--color-dark);
+    margin-bottom: 4px;
+  }
+
+  .benefit-text p {
+    font-size: 0.88rem;
+    color: var(--color-gray);
+    line-height: 1.4;
+  }
+</style>

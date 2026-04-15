@@ -1,0 +1,151 @@
+---
+const testimonials = [
+  {
+    name: 'María González',
+    pet: 'Dueña de Luna 🐕',
+    rating: 5,
+    text: 'Los productos son de excelente calidad. Luna adora su nueva cama ortopédica y el envío fue súper rápido. ¡100% recomendado!',
+    avatar: '👩'
+  },
+  {
+    name: 'Carlos Ramírez',
+    pet: 'Dueño de Michi 🐈',
+    rating: 5,
+    text: 'Encontré el alimento premium que mi veterinario recomendó a un precio increíble. El servicio al cliente es excepcional.',
+    avatar: '👨'
+  },
+  {
+    name: 'Ana Torres',
+    pet: 'Dueña de Kiwi 🦜',
+    rating: 5,
+    text: 'Muy buen catálogo de productos para aves, algo difícil de encontrar. Kiwi está feliz con sus nuevos juguetes.',
+    avatar: '👩‍🦰'
+  }
+];
+---
+<section class="testimonials">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-tag">💬 Testimonios</span>
+      <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+      <p class="section-subtitle">Miles de mascotas felices y sus familias confían en PetGalaxy</p>
+    </div>
+
+    <div class="testimonials-grid">
+      {testimonials.map((t) => (
+        <article class="testimonial-card">
+          <div class="quote-mark">"</div>
+          <div class="stars">
+            {Array.from({ length: t.rating }).map(() => <span>⭐</span>)}
+          </div>
+          <p class="testimonial-text">{t.text}</p>
+          <div class="testimonial-author">
+            <div class="avatar">{t.avatar}</div>
+            <div>
+              <strong>{t.name}</strong>
+              <span>{t.pet}</span>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonials {
+    background-color: var(--color-white);
+  }
+
+  .section-tag {
+    display: inline-block;
+    background-color: rgba(255, 122, 0, 0.1);
+    color: var(--color-primary);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 3rem;
+  }
+
+  .testimonial-card {
+    background-color: var(--color-light);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    transition: var(--transition);
+    border: 2px solid transparent;
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-primary);
+    background-color: white;
+  }
+
+  .quote-mark {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 5rem;
+    color: var(--color-primary);
+    opacity: 0.15;
+    line-height: 1;
+    font-family: Georgia, serif;
+  }
+
+  .stars {
+    display: flex;
+    gap: 2px;
+    margin-bottom: 16px;
+    font-size: 0.9rem;
+  }
+
+  .testimonial-text {
+    color: var(--color-dark);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(0,0,0,0.06);
+  }
+
+  .avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--color-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    flex-shrink: 0;
+  }
+
+  .testimonial-author strong {
+    display: block;
+    color: var(--color-dark);
+    font-size: 0.95rem;
+  }
+
+  .testimonial-author span {
+    color: var(--color-gray);
+    font-size: 0.85rem;
+  }
+</style>
