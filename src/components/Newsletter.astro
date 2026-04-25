@@ -1,0 +1,155 @@
+---
+// Newsletter Component
+---
+<section class="newsletter">
+  <div class="container">
+    <div class="newsletter-card glass-card">
+      <div class="newsletter-content">
+        <h2>¡Únete a nuestra manada! 🐾</h2>
+        <p>Suscríbete a nuestro boletín y recibe un <strong>15% de descuento</strong> en tu primera compra, además de tips exclusivos para tu mascota.</p>
+        
+        <form class="newsletter-form" onsubmit="event.preventDefault();">
+          <div class="input-group">
+            <input type="email" placeholder="Tu correo electrónico" required aria-label="Correo electrónico" />
+            <button type="submit" class="btn btn-primary">Suscribirme</button>
+          </div>
+          <p class="form-hint">Prometemos no enviar spam, solo amor peludo.</p>
+        </form>
+      </div>
+      <div class="newsletter-image">
+        <!-- Generando un perro y gato asomándose usando una imagen placeholder de alta calidad o CSS -->
+        <img src="https://images.unsplash.com/photo-1543852786-1cf6624b9987?auto=format&fit=crop&q=80&w=800" alt="Mascotas felices" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .newsletter {
+    padding: 2rem 0 6rem;
+  }
+  
+  .newsletter-card {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
+    border: none;
+    overflow: hidden;
+    color: var(--color-white);
+    position: relative;
+  }
+  
+  .newsletter-content {
+    flex: 1;
+    padding: 60px;
+    z-index: 2;
+  }
+  
+  .newsletter-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-white);
+  }
+  
+  .newsletter-content p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+    max-width: 500px;
+  }
+  
+  .newsletter-form {
+    max-width: 450px;
+  }
+  
+  .input-group {
+    display: flex;
+    background: var(--color-white);
+    padding: 6px;
+    border-radius: var(--border-radius-sm);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  }
+  
+  .input-group input {
+    flex: 1;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-family: var(--font-family);
+    outline: none;
+    background: transparent;
+  }
+  
+  .input-group .btn {
+    padding: 12px 24px;
+    white-space: nowrap;
+    border-radius: calc(var(--border-radius-sm) - 4px);
+  }
+  
+  .form-hint {
+    margin-top: 12px !important;
+    font-size: 0.85rem !important;
+    opacity: 0.8 !important;
+  }
+  
+  .newsletter-image {
+    flex: 1;
+    height: 100%;
+    min-height: 400px;
+    position: relative;
+    clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  
+  .newsletter-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  @media (max-width: 900px) {
+    .newsletter-card {
+      flex-direction: column;
+    }
+    
+    .newsletter-content {
+      padding: 40px 24px;
+      text-align: center;
+    }
+    
+    .newsletter-content p {
+      margin: 0 auto 2rem;
+    }
+    
+    .newsletter-form {
+      margin: 0 auto;
+    }
+    
+    .newsletter-image {
+      width: 100%;
+      min-height: 300px;
+      clip-path: none;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .input-group {
+      flex-direction: column;
+      background: transparent;
+      box-shadow: none;
+      padding: 0;
+      gap: 10px;
+    }
+    
+    .input-group input {
+      background: var(--color-white);
+      border-radius: var(--border-radius-sm);
+    }
+    
+    .input-group .btn {
+      width: 100%;
+    }
+  }
+</style>

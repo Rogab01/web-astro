@@ -16,7 +16,7 @@ const categories = [
     
     <div class="categories-grid">
       {categories.map((cat) => (
-        <a href="#" class="category-item">
+        <a href="#" class="category-item hover-float">
           <div class="category-icon" style={`background-color: ${cat.color};`}>
             <span>{cat.icon}</span>
           </div>
@@ -44,15 +44,7 @@ const categories = [
     flex-direction: column;
     align-items: center;
     gap: 15px;
-    transition: var(--transition);
-  }
-  
-  .category-item:hover {
-    transform: translateY(-5px);
-  }
-  
-  .category-item:hover .category-icon {
-    box-shadow: var(--shadow-lg);
+    padding: 10px;
   }
   
   .category-icon {
@@ -62,18 +54,26 @@ const categories = [
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 3rem;
-    transition: var(--transition);
-    border: 3px solid transparent;
+    font-size: 3.5rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 4px solid white;
+    box-shadow: var(--shadow);
   }
   
   .category-item:hover .category-icon {
-    border-color: var(--color-primary);
+    border-color: var(--color-primary-light);
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: var(--shadow-lg);
   }
   
   .category-item h3 {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     color: var(--color-dark);
-    font-weight: 600;
+    font-weight: 700;
+    transition: var(--transition);
+  }
+  
+  .category-item:hover h3 {
+    color: var(--color-primary);
   }
 </style>

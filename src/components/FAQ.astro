@@ -1,0 +1,126 @@
+---
+// FAQ Component
+const faqs = [
+  {
+    question: "¿Cuánto tardan en realizar los envíos?",
+    answer: "Realizamos envíos el mismo día para pedidos recibidos antes de las 2:00 PM. Por lo general, los pedidos locales tardan entre 24 y 48 horas hábiles en llegar a tu puerta."
+  },
+  {
+    question: "¿Tienen productos para dietas especiales?",
+    answer: "¡Sí! Contamos con una amplia gama de alimentos hipoalergénicos, libres de granos (grain-free), y dietas veterinarias específicas. Puedes filtrar por necesidades especiales en nuestra tienda."
+  },
+  {
+    question: "¿Aceptan devoluciones si a mi mascota no le gusta?",
+    answer: "Entendemos que las mascotas pueden ser quisquillosas. Ofrecemos la 'Garantía del Paladar Feliz': si tu mascota no acepta el alimento, puedes devolverlo en un plazo de 7 días (siempre que el empaque tenga al menos el 80% del producto original) para obtener un crédito en la tienda."
+  },
+  {
+    question: "¿Cómo agendo una cita de peluquería?",
+    answer: "Puedes agendar fácilmente llamándonos a nuestro número principal o utilizando el botón 'Agendar Cita' en la página de servicios. Recomendamos reservar con al menos 3 días de anticipación."
+  }
+];
+---
+<section class="faq-section">
+  <div class="container">
+    <div class="faq-header text-center">
+      <span class="badge">Soporte</span>
+      <h2 class="section-title">Preguntas Frecuentes</h2>
+      <p class="section-subtitle">Todo lo que necesitas saber sobre nuestros productos y servicios.</p>
+    </div>
+    
+    <div class="faq-accordion">
+      {faqs.map((faq, index) => (
+        <details class="faq-item glass-card hover-float" name="faq-accordion">
+          <summary class="faq-question">
+            {faq.question}
+            <span class="icon">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>{faq.answer}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-section {
+    background-color: var(--color-white);
+  }
+  
+  .faq-header {
+    margin-bottom: 3rem;
+  }
+  
+  .faq-header .badge {
+    margin-bottom: 1rem;
+  }
+  
+  .faq-accordion {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .faq-item {
+    padding: 0;
+    transition: var(--transition);
+  }
+  
+  .faq-item[open] {
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-primary-light);
+  }
+  
+  .faq-question {
+    padding: 24px;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--color-dark);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.3s ease;
+  }
+  
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+  
+  .faq-question:hover {
+    color: var(--color-primary);
+  }
+  
+  .icon {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--color-primary);
+    transition: transform 0.3s ease;
+  }
+  
+  .faq-item[open] .icon {
+    transform: rotate(45deg);
+  }
+  
+  .faq-answer {
+    padding: 0 24px 24px 24px;
+    color: var(--color-gray);
+    line-height: 1.6;
+    animation: fadeInDown 0.3s ease forwards;
+  }
+  
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
